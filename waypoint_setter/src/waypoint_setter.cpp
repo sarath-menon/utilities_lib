@@ -1,6 +1,9 @@
 #include "waypoint_setter.h"
 
 void WaypointSetter::set_setpoints(std::string path) {
+  // Safety check, see if file exists
+  safety_checks::yaml_file_check(path);
+
   // Load yaml file containing quadcopter properties
   YAML::Node setpoint_yaml = YAML::LoadFile(path);
 

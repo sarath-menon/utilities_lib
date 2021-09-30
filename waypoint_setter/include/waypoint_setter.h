@@ -1,4 +1,5 @@
 #pragma once
+#include "safety_checks.h"
 #include <string>
 #include <yaml-cpp/yaml.h>
 
