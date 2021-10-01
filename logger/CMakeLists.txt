@@ -7,4 +7,6 @@ target_include_directories(logger PUBLIC include)
 
 target_link_libraries(logger PRIVATE
 spdlog::spdlog
+yaml-cpp
 )
+
