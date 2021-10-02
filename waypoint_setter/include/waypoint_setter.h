@@ -1,20 +1,17 @@
 #pragma once
 #include "safety_checks.h"
+#include <matrix/math.hpp>
 #include <string>
 #include <yaml-cpp/yaml.h>
 
 class WaypointSetter {
 
 protected:
-  // Position Setpoints
-  float x_position_ = 0;
-  float y_position_ = 0;
-  float z_position_ = 0;
+  // Position Setpoint
+  matrix::Vector<float, 3> position_;
 
-  // Velocity Setpoints
-  float x_velocity_ = 0;
-  float y_velocity_ = 0;
-  float z_velocity_ = 0;
+  // Velocity Setpoint
+  matrix::Vector<float, 3> velocity_;
 
 public:
   // To load setpoints from yaml
@@ -22,15 +19,17 @@ public:
 
 public:
   /// Getter function
-  float x_position() const { return x_position_; }
+  float x_position() const { return position_(0); }
   /// Getter function
-  float y_position() const { return y_position_; }
+  float y_position() const { return position_(1); }
   /// Getter function
-  float z_position() const { return z_position_; }
+  float z_position() const { return position_(2); }
   /// Getter function
-  float x_velocity() const { return x_velocity_; }
+  float x_velocity() const { return velocity_(0); }
   /// Getter function
-  float y_velocity() const { return y_velocity_; }
+  float y_velocity() const { return velocity_(1); }
   /// Getter function
-  float z_velocity() const { return z_velocity_; }
+  float z_velocity() const { return velocity_(2); }
+  /// Getter function
+  matrix::Vector<float, 3> position() const { return position_; }
 };
