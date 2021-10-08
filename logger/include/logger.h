@@ -23,6 +23,9 @@ private:
   /// Contains the addresses of variables to be logged
   std::map<const std::string, const float *> log_address_book_;
 
+  // // Mutex lock for data display
+  // std::mutex m_;
+
 public:
   // Constructor to initialize logger
   Logger(std::string event_log_path, std::string data_log_path);

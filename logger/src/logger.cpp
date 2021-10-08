@@ -9,8 +9,11 @@ Logger::Logger(std::string event_log_path, std::string data_log_path) {
   // Initiaize event logger
   std::vector<spdlog::sink_ptr> sinks;
   sinks.push_back(std::make_shared<spdlog::sinks::stdout_sink_st>());
-  sinks.push_back(std::make_shared<spdlog::sinks::daily_file_sink_st>(
-      event_log_path, 23, 59));
+
+  // Disable spdlog text logging for now
+  // sinks.push_back(std::make_shared<spdlog::sinks::daily_file_sink_st>(
+  //     event_log_path, 23, 59));
+
   event_logger_ = std::make_shared<spdlog::logger>("event_logger", begin(sinks),
                                                    end(sinks));
   spdlog::register_logger(event_logger_);
@@ -75,7 +78,13 @@ void Logger::log_info(std::string text) { event_logger_->info(text); }
 
 void Logger::log_error(std::string text) { event_logger_->error(text); }
 
-void Logger::log_data(float data) { data_logger_ << data << '\t'; }
+void Logger::log_data(float data) {
+  // // Lock mutex
+  // std::scoped_lock<std::mutex> lock(m_);
+
+  // Write data to console
+  data_logger_ << data << '\t';
+}
 
 void Logger::log_next_line() { data_logger_ << '\n'; }
 
