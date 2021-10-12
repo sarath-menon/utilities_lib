@@ -8,14 +8,8 @@
 class WaypointSetter {
 
 protected:
-  // // Position Setpoint
-  // matrix::Vector<float, 3> position_;
-
-  // // Velocity Setpoint
-  // matrix::Vector<float, 3> velocity_;
-
   // Pose setpoint
-  msgs::Pose pose_setpoint_;
+  msgs::Pose pose_setpoint_{};
 
 public:
   // To load setpoints from yaml
