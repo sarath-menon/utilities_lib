@@ -9,7 +9,7 @@ class WaypointSetter {
 
 protected:
   // Pose setpoint
-  msgs::Pose pose_setpoint_{};
+  cpp_msg::Pose pose_setpoint_{};
 
 public:
   // To load setpoints from yaml
@@ -17,5 +17,5 @@ public:
 
 public:
   /// Getter function
-  const msgs::Pose &pose() const { return pose_setpoint_; }
+  const cpp_msg::Pose &pose() const { return pose_setpoint_; }
 };
