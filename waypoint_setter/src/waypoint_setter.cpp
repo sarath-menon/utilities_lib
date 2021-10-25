@@ -11,4 +11,8 @@ void WaypointSetter::set_setpoints(std::string path) {
   pose_setpoint_.position.x = setpoint_yaml["x_position"].as<float>();
   pose_setpoint_.position.y = setpoint_yaml["y_position"].as<float>();
   pose_setpoint_.position.z = setpoint_yaml["z_position"].as<float>();
+
+  pos_setpoint_.position.x = setpoint_yaml["x_position"].as<float>();
+  pos_setpoint_.position.y = setpoint_yaml["y_position"].as<float>();
+  pos_setpoint_.position.z = setpoint_yaml["z_position"].as<float>();
 }
